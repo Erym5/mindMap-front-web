@@ -1,8 +1,8 @@
 {
-  "name": "case_minder_vue",
+  "name": "mindMap",
   "version": "1.0.0",
-  "description": "基于百度脑图，并使用Vue二开的用例脑图",
-  "author": "米阳meyoung",
+  "description": "书籍目录转化为脑图",
+  "author": "eRym",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
