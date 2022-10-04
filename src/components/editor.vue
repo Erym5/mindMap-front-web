@@ -5,6 +5,7 @@
     <main-editor></main-editor>
     <navigator></navigator>
 
+
     <!-- note markdown 挂件 -->
     <div
       v-show="showNotePreviewer"
@@ -141,3 +142,7 @@
   }
 
 </script>
+
+<style>
+
+</style>

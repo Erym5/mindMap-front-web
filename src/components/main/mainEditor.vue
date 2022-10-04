@@ -1,5 +1,9 @@
 <template lang="html">
-  <div class="mind-editor"></div>
+    <div class="mind-editor">
+      <div class="comment">
+        <a href="https://book.douban.com/" target="_blank">读后总结</a>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -8,27 +12,64 @@
     mapMutations,
     mapGetters
   } from 'vuex'
+  import {getMap} from "../../api/mindMap";
 
   export default {
     data() {
       return {
         previewTimer: null,
+        json: undefined,
       }
     },
-
+    // props: {
+    //   Json: {
+    //   }
+    // },
     // 父组件中通过provide来提供变量，然后在子组件中通过inject来注入变量
-    inject: ['main'],
+    inject: ['main', 'id'],
 
     mounted() {
+      console.log(this.main + "mmian")
       console.log('this minde:',this.minder)
       var Editor = require('../../script/editor');
       var el = this.$el;
       console.log('=====el====', el)
       var editor = window.editor = new Editor(el);
       this.setEditor(editor);
-      if (window.localStorage.mindText) {
-        editor.minder.importJson(JSON.parse(window.localStorage.mindText));
+      console.log("id------------------------" + this.id);
+      if(this.id) {
+        getMap(this.id).then((res) => {
+          // console.log(this.$route.params.id)
+          this.json = res.data.content
+          this.json = JSON.parse(this.json)
+          console.log(this.json)
+        })
       }
+      setTimeout(()=>{
+        if (!this.json) {
+          if (window.localStorage.mindText) {
+            // editor.minder.importJson(JSON.parse(window.localStorage.mindText));
+            console.log("importing")
+          }
+
+          editor.minder.on('contentchange', function () {
+            window.localStorage.mindText = JSON.stringify(editor.minder.exportJson());
+          });
+        }
+        else {
+          console.log("not null" + this.json)
+          editor.minder.importJson(this.json)
+          console.log("importing")
+          this.json = undefined
+          console.log(this.json)
+        }
+      },500)
+
+
+      // if (window.localStorage.mindText) {
+      //   editor.minder.importJson(JSON.parse(window.localStorage.mindText));
+      //   console.log("importing")
+      // }
 
       editor.minder.on('contentchange', function () {
         window.localStorage.mindText = JSON.stringify(editor.minder.exportJson());
@@ -54,9 +95,9 @@
 
     },
     computed: {
-      ...mapGetters([
-        'minder',
-      ])
+      ...mapGetters({
+        'minder': 'getMinder'
+      })
     },
     methods: {
       ...mapActions([

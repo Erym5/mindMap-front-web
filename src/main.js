@@ -5,6 +5,7 @@ import store from './store'
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
 import $ from 'jquery'
+// import axios from "axios";
 
 require('../node_modules/codemirror/lib/codemirror.js')
 require('../node_modules/codemirror/mode/xml/xml.js')
@@ -30,6 +31,7 @@ Vue.use(ElementUI)
 
 new Vue({
   el: '#app',
+  // axios,
   router,
   store,
   template: '<App/>',

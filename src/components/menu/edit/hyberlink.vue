@@ -39,99 +39,99 @@
 </template>
 
 <script>
-  import {
-    mapGetters,
-  } from 'vuex';
+import {
+  mapGetters,
+} from 'vuex';
 
 
-  export default {
-    name: "hyberlink",
-    data() {
-      return {
-        reslove: null,
-        reject: null,
-        visible: false,
-        formData: {
-          url: '',
-          title: ''
-        },
-        rules: {
-          url: [
-            {required: true, pattern: /http[s]{0,1}:\/\/([\w.]+\/?)\S*/, message: '请输入正确链接', trigger: 'blur'},
-          ],
-          title: [
-            {required: true, message: '请输入标题', trigger: 'blur'},
-          ]
-        }
+export default {
+  name: "hyberlink",
+  data() {
+    return {
+      reslove: null,
+      reject: null,
+      visible: false,
+      formData: {
+        url: '',
+        title: ''
+      },
+      rules: {
+        url: [
+          {required: true, pattern: /http[s]{0,1}:\/\/([\w.]+\/?)\S*/, message: '请输入正确链接', trigger: 'blur'},
+        ],
+        title: [
+          {required: true, message: '请输入标题', trigger: 'blur'},
+        ]
+      }
+    }
+  },
+  computed: {
+    ...mapGetters({
+      'minder': 'getMinder',
+    }),
+  },
+  methods: {
+    openModal(options) {
+      this.visible = true;
+      this.formData = {
+        ...options
+      }
+      return new Promise((resolve, reject) => {
+        this.resolve = resolve;
+        this.reject = reject;
+      });
+    },
+    handleLinkCommand(command) {
+      switch (command) {
+        case 'add':
+          this.addLinkModal();
+          break;
+        case 'remove':
+          this.removeHyperLick();
+          break;
+        default:
+          break;
       }
     },
-    computed: {
-      ...mapGetters({
-        'minder': 'getMinder',
-      }),
+    addLinkModal() {
+      this.openModal();
+
     },
-    methods: {
-      openModal(options) {
-        this.visible = true;
-        this.formData = {
-          ...options
-        }
-        return new Promise((resolve, reject) => {
-          this.resolve = resolve;
-          this.reject = reject;
-        });
-      },
-      handleLinkCommand(command) {
-        switch (command) {
-          case 'add':
-            this.addLinkModal();
-            break;
-          case 'remove':
-            this.removeHyperLick();
-            break;
-          default:
-            break;
-        }
-      },
-      addLinkModal() {
-        this.openModal();
+    removeHyperLick() {
+      this.minder.execCommand('HyperLink', null);
+    },
 
-      },
-      removeHyperLick() {
-        this.minder.execCommand('HyperLink', null);
-      },
-
-      handleSubmit() {
-        this.$refs.form.validate((valid) => {
-          if (valid) {
-            this.resolve({
-              url: this.formData.url,
-              title: this.formData.title
-            })
-            this.minder.execCommand('HyperLink',this.formData.url, this.formData.title);
-            this.visible = false;
-            this.initData();
-          }
-        })
-      },
-      handleCancel() {
-        // 重置填写内容
-        this.initData();
-        this.visible = false;
-      },
-      handleClose(done) {
-        // 重置填写内容
-        this.initData();
-        done();
-      },
-      initData() {
-        this.formData = {
-          url: '',
-          title: ''
+    handleSubmit() {
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          this.resolve({
+            url: this.formData.url,
+            title: this.formData.title
+          })
+          this.minder.execCommand('HyperLink',this.formData.url, this.formData.title);
+          this.visible = false;
+          this.initData();
         }
+      })
+    },
+    handleCancel() {
+      // 重置填写内容
+      this.initData();
+      this.visible = false;
+    },
+    handleClose(done) {
+      // 重置填写内容
+      this.initData();
+      done();
+    },
+    initData() {
+      this.formData = {
+        url: '',
+        title: ''
       }
     }
   }
+}
 </script>
 
 <style scoped>

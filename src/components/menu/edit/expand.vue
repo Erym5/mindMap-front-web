@@ -34,7 +34,6 @@ export default {
     ...mapGetters({
       'minder': 'getMinder'
     })
-
   },
   methods: {
     handleCommand(command) {

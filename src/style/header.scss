@@ -359,6 +359,15 @@ header {
       font-size: 12px;
     }
   }
+  .base-btn {
+    //width: 60px;
+    button {
+      border: none;
+      outline: none;
+    }
+    @include flexcenter;
+    margin: 0 5px;
+  }
   .expand-group {
     .expand {
       width: 40px;
@@ -379,7 +388,6 @@ header {
       font-size: 12px;
     }
   }
-
   //自定义标签
   //.resource-wrap {
   //  flex-direction: column;

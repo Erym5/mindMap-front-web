@@ -59,7 +59,7 @@ try {
 } catch (e) {
   localhost = 'localhost';
 }
-var uri = 'http://' + localhost + ':' + port
+var uri = 'http://localhost:' + port
 
 var _resolve
 var readyPromise = new Promise(resolve => {

@@ -1,37 +1,28 @@
-# 为啥会有这个组件
-一切从我要做的平台说起：https://www.yuque.com/miyang.meyoung/other/wux7a6
-# Case_Minder_Vue
+## 项目简介
 
-是基于[百度脑图](https://github.com/fex-team/kityminder-core) 和 [fudax/vue-mindeditor](https://github.com/fudax/vue-mindeditor) 的基础上修改：
+mindMap是基于Spring boot + Vue 开发的个人书籍管理平台，通过将书籍目录脑图化并DIY后续内容，使其由文字形式转化为图片形式，可被更多感知细胞感知，从而达到加深理解记忆效果。包括搜索书籍，书籍转脑图，脑图存储，脑图编辑等功能。仅作学习使用
 
-采用Vue 全家桶 + Element UI + webpack 开发
+## 项目参考
 
-## Build Setup
+    [https://github.com/MeYoung/Case_Minder_Vue](https://github.com/MeYoung/Case_Minder_Vue)
+    感谢~~！！
 
-``` bash
-# install npm dependencies
+## 项目地址
+
+后端：
+前端：
+
+## 技术选型
+    Vue.js  2
+    Vue Router
+    Vuex
+    axios
+    element-ui
+    json-diff
+    kityminder-editor
+
+## 安装步骤
+    
+    下载源码
     npm install
-
-# serve with hot reload at localhost:8088
     npm run dev
-
-# build for production with minification
-    npm run build
-
-# License
-    BSD 3-Clause (基于fex-team/kityminder-core，并非kityminder-editor)
-```
-
-如果有修改 kityminder-core 需要阅读 kityminder-core 下的readme，并执行如下指令打包
-```shell script
-# kityminder-core
-cd kityminder-core
-
-npm run build
-
-```
-
-## 效果：
-![脑图](https://github.com/MeYoung/Case_Minder_Vue/blob/master/naotu1.png?raw=true)
-![脑图](https://github.com/MeYoung/Case_Minder_Vue/blob/master/naotu2.png?raw=true)
-
