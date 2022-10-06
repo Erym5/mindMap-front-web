@@ -5,12 +5,15 @@ mindMap是基于Spring boot + Vue 开发的个人书籍管理平台，通过将�
 ## 项目参考
 
     [https://github.com/MeYoung/Case_Minder_Vue](https://github.com/MeYoung/Case_Minder_Vue)
-    感谢~~！！
+    **感谢**~~！！
 
 ## 项目地址
 
-后端：
-前端：
+- 后端项目 : [https://github.com/Erym5/mindMap](https://github.com/Erym5/mindMap)
+- 前端项目 : [https://github.com/Erym5/mindMap-front-web](https://github.com/Erym5/mindMap-front-web)
+
+## 项目体验: [http://182.92.113.4](http://182.92.113.4)
+## 本地安装后地址: http://localhost/8088
 
 ## 技术选型
     Vue.js  2
@@ -22,7 +25,7 @@ mindMap是基于Spring boot + Vue 开发的个人书籍管理平台，通过将�
     kityminder-editor
 
 ## 安装步骤
-    
+
     下载源码
     npm install
     npm run dev

@@ -47,14 +47,14 @@
       }
       setTimeout(()=>{
         if (!this.json) {
-          if (window.localStorage.mindText) {
-            // editor.minder.importJson(JSON.parse(window.localStorage.mindText));
-            console.log("importing")
-          }
-
-          editor.minder.on('contentchange', function () {
-            window.localStorage.mindText = JSON.stringify(editor.minder.exportJson());
-          });
+          // if (window.localStorage.mindText) {
+          //   // editor.minder.importJson(JSON.parse(window.localStorage.mindText));
+          //   console.log("importing")
+          // }
+          //
+          // editor.minder.on('contentchange', function () {
+          //   window.localStorage.mindText = JSON.stringify(editor.minder.exportJson());
+          // });
         }
         else {
           console.log("not null" + this.json)
