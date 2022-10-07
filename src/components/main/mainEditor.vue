@@ -63,7 +63,7 @@
           this.json = undefined
           console.log(this.json)
         }
-      },500)
+      },2000)
 
 
       // if (window.localStorage.mindText) {

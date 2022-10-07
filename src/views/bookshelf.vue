@@ -22,7 +22,7 @@
             <el-col :span="15">
               <a href="javascript:void(0)" @click="mapDetail(item)">{{ item.title }}</a>
             </el-col>
-            <el-col :span="6"><el-button class="demonstration" @click="deleteMap(item.id)">删除</el-button></el-col>
+            <el-col :span="6"><el-button class="demonstration" @click="deleteMap(item.mapId)">删除</el-button></el-col>
             <el-col :span="24"><br></el-col>
           </el-row>
           <el-row class="pageControl">
@@ -87,7 +87,7 @@ export default {
     },
     lastPage() {
       if (this.currentPage === 0) return ;
-      this.dataShow = this.totalPage[0];
+      this.dataShow = this.totalPage[this.pageNum];
     },
     deleteMap(id) {
       deleteMapById(id).then(this.getData)
