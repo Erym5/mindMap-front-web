@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {getToken,removeToken,removeNickName, setToken} from '../utils/auth'
-// import router from '/vue-router'
 import { Message } from 'element-ui'
 
 

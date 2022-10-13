@@ -12,7 +12,6 @@ mindMap是基于Spring boot + Vue 开发的个人书籍管理平台，通过将�
 - 后端项目 : [https://github.com/Erym5/mindMap](https://github.com/Erym5/mindMap)
 - 前端项目 : [https://github.com/Erym5/mindMap-front-web](https://github.com/Erym5/mindMap-front-web)
 
-## 项目体验: [http://182.92.113.4](http://182.92.113.4)
 ## 本地安装后地址: http://localhost/8088
 
 ## 技术选型

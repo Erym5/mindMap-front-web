@@ -23,3 +23,5 @@ export function getMaps() {
 export function deleteMapById(id) {
   return request.delete('/api/mind_map/delete', {params: {mapId: id}});
 }
+
+

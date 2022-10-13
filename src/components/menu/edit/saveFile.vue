@@ -26,16 +26,14 @@ export default {
     saveHandle() {
       this.minder.exportData('json').then(content => {
         let json = JSON.parse(content)
-        // console.log(json)
+        console.log(json)
         // console.log(this.id)
         if (this.id) {
           updateMap(json)
-          Message.success("保存完成")
-        }
-        else {
+        } else {
           mindMapSave(json)
-          Message.success("保存完成")
         }
+        Message.success("保存完成")
       })
     },
   }

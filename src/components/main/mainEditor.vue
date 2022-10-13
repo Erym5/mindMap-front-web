@@ -21,16 +21,10 @@
         json: undefined,
       }
     },
-    // props: {
-    //   Json: {
-    //   }
-    // },
     // 父组件中通过provide来提供变量，然后在子组件中通过inject来注入变量
     inject: ['main', 'id'],
 
     mounted() {
-      console.log(this.main + "mmian")
-      console.log('this minde:',this.minder)
       var Editor = require('../../script/editor');
       var el = this.$el;
       console.log('=====el====', el)
@@ -47,14 +41,6 @@
       }
       setTimeout(()=>{
         if (!this.json) {
-          // if (window.localStorage.mindText) {
-          //   // editor.minder.importJson(JSON.parse(window.localStorage.mindText));
-          //   console.log("importing")
-          // }
-          //
-          // editor.minder.on('contentchange', function () {
-          //   window.localStorage.mindText = JSON.stringify(editor.minder.exportJson());
-          // });
         }
         else {
           console.log("not null" + this.json)
@@ -64,12 +50,6 @@
           console.log(this.json)
         }
       },2000)
-
-
-      // if (window.localStorage.mindText) {
-      //   editor.minder.importJson(JSON.parse(window.localStorage.mindText));
-      //   console.log("importing")
-      // }
 
       editor.minder.on('contentchange', function () {
         window.localStorage.mindText = JSON.stringify(editor.minder.exportJson());

@@ -14,6 +14,12 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+  externals: {
+    vue: 'Vue',
+    'element-ui': 'ELEMENT',
+    'kity': 'kity',
+    'jquery': 'jQuery'
+  },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

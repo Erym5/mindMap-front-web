@@ -7,10 +7,12 @@
       <el-container>
         <el-header>
           <headerLink></headerLink>
+          <a href="https://github.com/Erym5/mindMap" style="font-size: larger;" target="_blank">项目地址</a>
         </el-header>
 
         <el-main>
           <div id="backgroundImg"></div>
+
         </el-main>
       </el-container>
     </el-container>

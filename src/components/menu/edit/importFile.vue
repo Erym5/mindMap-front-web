@@ -13,7 +13,6 @@
 import {
   mapGetters
 } from 'vuex'
-import {expandParent} from "../../../utils/convert/jsonconvert";
 export default {
   name: "importFile",
   data() {
@@ -28,7 +27,6 @@ export default {
   },
   methods: {
     importHandle(e) {
-      let that = this
       console.log("导入")
       let file = document.querySelector('#upload').files[0]
       let reader=new FileReader();
@@ -36,7 +34,6 @@ export default {
       console.log(file)
       reader.onload = ((e) => {
         this.json = JSON.parse(e.target.result)
-        // this.json.root = expandParent(this.json.root);
         console.log(JSON.parse(e.target.result))
         console.log(e.target.result)
         this.minder.importJson(this.json)

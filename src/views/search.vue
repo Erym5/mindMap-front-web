@@ -85,9 +85,8 @@ export default {
   },
   methods:{
     searchByK() {
-      let that = this
       findBookByText(this.keyword).then((res) => {
-        that.books = JSON.parse(JSON.stringify(res.data))
+        this.books = JSON.parse(JSON.stringify(res.data))
       })
     },
     bookDetail(bookId) {

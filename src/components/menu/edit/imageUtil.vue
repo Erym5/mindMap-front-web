@@ -49,7 +49,6 @@ import {
   mapGetters
 } from 'vuex'
 import { uploadImg } from "../../../api/resource";
-import axios from 'axios'
 
 export default {
   name: 'imgUtil',
@@ -101,40 +100,14 @@ export default {
       }
     },
     uploadImage (e) {
-
-      // var file = document.querySelector('#upload-image').files[0]
-      // var blob = URL.createObjectURL(file);
-      // var img = document.getElementsByTagName("img")[0];
-      // img.src = blob;
-      // console.log(img.src)
-      // img.onload = function(e) {
-        // URL.revokeObjectURL(this.src);  // 释放createObjectURL创建的对象##
-      // }
-      // const that = this
-      // console.log(this.formData.url)
       let file = e.target.files[0]
       let form = new FormData();
 
       form.append("file", file);
-      // var reader = new FileReader()
-      // reader.readAsDataURL(file)
-      // reader.onload = function (e) {
-      //   let blobURL = (e.target.result)
-      //   let res = this.pngBase64ToBlob(blobURL)
-      //   that.formData.url = res
-      //   console.log(that.formData.url)
-      // }
-      console.log(form)
-      // axios.post("", "", `headers:{contentType: multipart/form-data}`)
       uploadImg(form).then((res) => {
         this.formData.url = "http://localhost:4000/image?fileName=" + res.data
         console.log(res.data)
       })
-      // axios.post("http://localhost:4000/file/upload", form, {
-      //   headers: {
-      //     'Content-Type': 'multipart/form-data',
-      //   },
-      // })
     },
     addLinkModal () {
       this.openModal()
