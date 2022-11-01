@@ -14,9 +14,9 @@
             </el-col>
           </el-row>
           <el-row >
-            <el-col :span="2">&nbsp</el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-search" @click="deleteByChoices()">选中删除</el-button>
+            <el-col :span="1">&nbsp</el-col>
+            <el-col :span="3">
+              <el-button type="primary" @click="deleteByChoices()">选中删除</el-button>
             </el-col>
             <el-col :span="14">
               <input
@@ -33,7 +33,7 @@
             </el-col>
             <el-col :span="1">&nbsp</el-col>
             <el-col :span="3">
-              <el-button type="primary" icon="el-icon-search" @click="reset()">重置</el-button>
+              <el-button type="primary" @click="reset()">重置搜索库</el-button>
             </el-col>
           </el-row>
         </el-header>
@@ -109,8 +109,10 @@ export default {
   },
   methods:{
     deleteByChoices() {
-      console.log(this.queue)
       deletebychoices(this.queue)
+      setTimeout(() => {
+        this.getData()
+      }, 1000)
     },
     push2Queue(item) {
       this.queue.push(item.mapId)

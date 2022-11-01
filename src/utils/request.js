@@ -6,9 +6,10 @@ import { Message } from 'element-ui'
 
 axios.defaults.baseURL = "http://localhost:4000"
 axios.defaults.timeout = 10000
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = false
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*'
 
 // 响应拦截
 

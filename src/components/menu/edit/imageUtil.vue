@@ -23,8 +23,6 @@
         :model="formData"
         target="frameName"
       >
-<!--        <input type = "file" name = "file">-->
-<!--        <input type = "submit" value ="提交">-->
         <input  type="file" name="upload-image" id="upload-image"
                 accept=".jpg,.JPG,jpeg,JPEG,.png,.PNG,.gif,.GIF"
                 @change="uploadImage($event)" />
@@ -120,11 +118,6 @@ export default {
       console.log(this.formData.title)
       this.minder.execCommand("Image",this.formData.url,this.formData.title)
       this.minder.execCommand("Image",this.formData.url,this.formData.title)
-      // this.resolve({
-      //   url: this.formData.url,
-      //   title: this.formData.title
-      // })
-      // this.minder.execCommand('img', this.formData.url, this.formData.title)
       this.visible = false
       this.initData()
     },

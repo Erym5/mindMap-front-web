@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 // import edit from '../views/edit';
 import home from '../views/home';
+import login from '../views/login';
 import search from "../views/search";
 import bookshelf from "../views/bookshelf";
 import find from "../views/find";
@@ -27,6 +28,11 @@ export default new Router({
       path:'/bookshelf',
       name:'bookshelf',
       component:bookshelf
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:login
     },
     {
       path:'/find',

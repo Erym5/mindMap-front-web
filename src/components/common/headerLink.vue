@@ -1,4 +1,10 @@
 <template>
+  <div>
+    <div class="user">
+      <el-button @click="login">登录</el-button>
+      <el-button @click="logout">登出</el-button>
+    </div>
+
   <el-dropdown class="header-link" @command="handleCommand">
     <span class="el-dropdown-link">
       <img class="user-logo"
@@ -15,16 +21,30 @@
       <el-dropdown-item command="/find">发现</el-dropdown-item>
     </el-dropdown-menu>
   </el-dropdown>
+  </div>
 </template>
 
 <script>
+import {removeToken, removeUid} from "../../utils/auth";
+import {Message} from "element-ui";
+
 export default {
   name: "headerLink",
-  methods:{
+  methods: {
     handleCommand(command) {
       this.$router.push({
-        path:command
-    })
+        path: command
+      })
+    },
+    login() {
+      this.$router.push({
+        path: "/login"
+      })
+    },
+    logout(){
+      removeToken();
+      removeUid();
+      Message.info("账户已退出")
     }
   }
 }
@@ -39,6 +59,13 @@ export default {
   //align-items: center;
   position: fixed;
   right: 0px;
+  top: 0px;
+}
+.user{
+  display: flex;
+  //align-items: center;
+  position: fixed;
+  right: 100px;
   top: 0px;
 }
 
